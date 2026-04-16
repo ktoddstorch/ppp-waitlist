@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P³ — Your Performance Journey Starts Here</title>
+<meta name="description" content="The AI pickleball coaching platform built from 206 games, 31 days, and 66% fewer errors. Join the waitlist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0a0f1e;--green:#34d364;--green-dark:#1a7a3a;--white:#ffffff;
+  --muted:rgba(255,255,255,0.55);--faint:rgba(255,255,255,0.25);
+  --surface:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.1);
+  --font-head:'Bebas Neue',sans-serif;--font-body:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--white);min-height:100vh;overflow-x:hidden;
+  background-image:
+    linear-gradient(rgba(52,211,100,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52,211,100,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px 60px;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,100,0.2) 0%,rgba(52,211,100,0.04) 40%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;animation:glowPulse 5s ease-in-out infinite;}
+@keyframes glowPulse{0%,100%{opacity:.6;transform:translate(-50%,-55%) scale(1);}50%{opacity:.9;transform:translate(-50%,-55%) scale(1.08);}}
+.hero-mark{font-family:var(--font-head);font-size:20px;letter-spacing:0.25em;color:var(--green);text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1;}
+.hero h1{font-family:var(--font-head);font-size:clamp(42px,8vw,80px);line-height:1.05;letter-spacing:0.02em;color:var(--white);margin-bottom:16px;position:relative;z-index:1;}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:var(--muted);max-width:520px;line-height:1.6;margin-bottom:48px;position:relative;z-index:1;}
+.scroll-arrow{position:relative;z-index:1;width:28px;height:28px;border-left:2px solid var(--faint);border-bottom:2px solid var(--faint);transform:rotate(-45deg);animation:bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:rotate(-45deg) translateY(0);}50%{transform:rotate(-45deg) translateY(8px);}}
+
+/* ── STATS ── */
+.stats{padding:48px 24px;background:linear-gradient(135deg,rgba(52,211,100,0.08),rgba(52,211,100,0.02));border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.stats-row{display:flex;justify-content:center;align-items:center;gap:0;max-width:700px;margin:0 auto;flex-wrap:wrap;}
+.stat{flex:1;min-width:160px;text-align:center;padding:16px 20px;}
+.stat-num{font-family:var(--font-head);font-size:clamp(48px,8vw,72px);color:var(--green);line-height:1;}
+.stat-label{font-size:14px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;}
+.stat-div{width:1px;height:60px;background:var(--border);flex-shrink:0;}
+.stats-cap{text-align:center;margin-top:20px;font-size:13px;color:var(--faint);letter-spacing:0.06em;}
+@media(max-width:560px){.stat-div{display:none;}.stats-row{flex-direction:column;gap:8px;}}
+
+/* ── QUOTE ── */
+.quote{padding:64px 24px;text-align:center;max-width:680px;margin:0 auto;}
+.quote p{font-size:clamp(16px,2.2vw,20px);font-style:italic;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:16px;}
+.quote cite{font-size:14px;color:var(--green);font-style:normal;font-weight:600;letter-spacing:0.04em;}
+
+/* ── FORM ── */
+.form-section{padding:64px 24px 80px;max-width:480px;margin:0 auto;}
+.form-section h2{font-family:var(--font-head);font-size:clamp(32px,5vw,48px);text-align:center;letter-spacing:0.02em;margin-bottom:8px;}
+.form-sub{text-align:center;font-size:15px;color:var(--muted);margin-bottom:32px;line-height:1.5;}
+
+.toggle-row{display:flex;gap:0;border-radius:99px;overflow:hidden;border:1px solid var(--border);margin-bottom:24px;}
+.toggle-btn{flex:1;padding:12px 0;text-align:center;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all .2s;}
+.toggle-btn.active{background:var(--green);color:#0a0f1e;}
+
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.field input{width:100%;padding:14px 16px;font-size:15px;font-family:var(--font-body);background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--white);outline:none;transition:border .2s;}
+.field input::placeholder{color:var(--faint);}
+.field input:focus{border-color:var(--green);}
+
+.submit-btn{width:100%;padding:16px;font-size:16px;font-weight:700;font-family:var(--font-body);background:var(--green);color:#0a0f1e;border:none;border-radius:99px;cursor:pointer;letter-spacing:0.02em;transition:opacity .2s;margin-top:8px;}
+.submit-btn:hover{opacity:.9;}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;}
+.form-error{text-align:center;font-size:13px;color:#f87171;margin-top:10px;min-height:18px;}
+
+/* ── SUCCESS STATE ── */
+.success-state{text-align:center;padding:24px 0;}
+.success-check{width:64px;height:64px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.success-check svg{width:32px;height:32px;}
+.success-state h3{font-family:var(--font-head);font-size:36px;letter-spacing:0.02em;margin-bottom:8px;}
+.success-state p{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.share-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.share-btn{padding:10px 20px;border-radius:99px;font-size:13px;font-weight:600;font-family:var(--font-body);cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--white);transition:all .2s;}
+.share-btn:hover{border-color:var(--green);color:var(--green);}
+.share-toast{font-size:12px;color:var(--green);margin-top:12px;min-height:16px;}
+
+/* ── FOOTER ── */
+.footer{padding:32px 24px;text-align:center;border-top:1px solid var(--border);}
+.footer p{font-size:12px;color:var(--faint);line-height:1.8;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-mark">P ³</div>
+  <h1>Your Performance Journey Starts Here.</h1>
+  <p class="hero-sub">The AI coaching platform built from 206 games, 31 days, and 66% fewer errors.</p>
+  <a href="#stats" aria-label="Scroll down"><div class="scroll-arrow"></div></a>
+</section>
+
+<!-- ════ STATS ════ -->
+<section class="stats" id="stats">
+  <div class="stats-row">
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="206">0</div>
+      <div class="stat-label">Games Tracked</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="31">0</div>
+      <div class="stat-label">Days of Proof</div>
+    </div>
+    <div class="stat-div"></div>
+    <div class="stat fade-up">
+      <div class="stat-num" data-target="66" data-suffix="%">0</div>
+      <div class="stat-label">Fewer Errors</div>
+    </div>
+  </div>
+  <p class="stats-cap fade-up">Built by a player. Proven by data. Coming soon.</p>
+</section>
+
+<!-- ════ QUOTE ════ -->
+<section class="quote fade-up">
+  <p>&ldquo;206 games. 66% fewer errors. 31 days &mdash; tracked on an Apple Watch and a spreadsheet. Every player who saw my data wanted the same thing. So I built P&sup3; to give every player the same proof and path to improve.&rdquo;</p>
+  <cite>&mdash; Todd Storch, Founder</cite>
+</section>
+
+<!-- ════ FORM ════ -->
+<section class="form-section" id="signup">
+  <h2>Join the Waitlist</h2>
+  <p class="form-sub">Be first in line when we launch. Players and coaches welcome.</p>
+
+  <div id="form-container">
+    <div class="toggle-row">
+      <button class="toggle-btn active" data-type="player" onclick="setType(this)">🏓 Player</button>
+      <button class="toggle-btn" data-type="coach" onclick="setType(this)">🎯 Coach</button>
+    </div>
+    <div class="field">
+      <label for="w-name">Full Name</label>
+      <input type="text" id="w-name" placeholder="Your name" required>
+    </div>
+    <div class="field">
+      <label for="w-email">Email Address</label>
+      <input type="email" id="w-email" placeholder="you@email.com" required>
+    </div>
+    <div class="field">
+      <label for="w-phone">Mobile Number</label>
+      <input type="tel" id="w-phone" placeholder="Optional — for launch day text alert">
+    </div>
+    <button class="submit-btn" id="w-submit" onclick="submitWaitlist()">Claim My Spot →</button>
+    <div class="form-error" id="w-error"></div>
+  </div>
+
+  <div id="success-container" class="success-state" style="display:none;">
+    <div class="success-check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0a0f1e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3>You're on the list.</h3>
+    <p>We'll reach out when P³ opens. Tell a fellow player 👇</p>
+    <div class="share-row">
+      <button class="share-btn" onclick="shareClipboard()">📋 Copy &amp; Share</button>
+      <button class="share-btn" onclick="shareFacebook()">📘 Share on Facebook</button>
+    </div>
+    <div class="share-toast" id="share-toast"></div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="footer">
+  <p>&copy; 2026 P&sup3; &middot; Pickleball Performance Platform</p>
+  <p>Built by a player, for players.</p>
+</footer>
+
+<script>
+// ── Toggle ──
+let selectedType = 'player';
+function setType(btn) {
+  document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedType = btn.dataset.type;
+}
+
+// ── Submit ──
+async function submitWaitlist() {
+  const name  = document.getElementById('w-name').value.trim();
+  const email = document.getElementById('w-email').value.trim();
+  const phone = document.getElementById('w-phone').value.trim();
+  const errEl = document.getElementById('w-error');
+  const btn   = document.getElementById('w-submit');
+  errEl.textContent = '';
+
+  if (!name) { errEl.textContent = 'Name is required.'; return; }
+  if (!email || !email.includes('@')) { errEl.textContent = 'Valid email is required.'; return; }
+
+  btn.textContent = 'Joining...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/.netlify/functions/waitlist-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone: phone || null, user_type: selectedType }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Signup failed');
+
+    document.getElementById('form-container').style.display = 'none';
+    document.getElementById('success-container').style.display = 'block';
+  } catch (err) {
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    btn.textContent = 'Claim My Spot →';
+    btn.disabled = false;
+  }
+}
+
+// Enter key submits
+document.querySelectorAll('#form-container input').forEach(el => {
+  el.addEventListener('keydown', e => { if (e.key === 'Enter') submitWaitlist(); });
+});
+
+// ── Share ──
+const SHARE_TEXT = "Just joined the waitlist for P³ — a new AI pickleball coaching platform. 206 games. 66% fewer errors. 31 days of proof. Check it out 🎯🏓";
+
+function shareClipboard() {
+  navigator.clipboard.writeText(SHARE_TEXT).then(() => {
+    document.getElementById('share-toast').textContent = '✓ Copied to clipboard!';
+    setTimeout(() => document.getElementById('share-toast').textContent = '', 3000);
+  }).catch(() => {
+    document.getElementById('share-toast').textContent = 'Copy failed — try manually.';
+  });
+}
+
+function shareFacebook() {
+  const url = encodeURIComponent(window.location.href);
+  const quote = encodeURIComponent(SHARE_TEXT);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`, '_blank', 'width=600,height=400');
+}
+
+// ── Count-up animation on scroll ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Count-up for stat numbers
+      const num = entry.target.querySelector('.stat-num');
+      if (num && num.dataset.target) {
+        const target = parseInt(num.dataset.target);
+        const suffix = num.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+        const step = (now) => {
+          const pct = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - pct, 3); // easeOutCubic
+          num.textContent = Math.round(target * ease) + suffix;
+          if (pct < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
