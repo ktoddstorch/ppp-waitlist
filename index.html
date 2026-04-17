@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>P³ — Your Performance Journey Starts Here</title>
-<meta name="description" content="The AI pickleball coaching platform built from 206 games, 31 days, and 66% fewer errors. Join the waitlist.">
+<meta name="description" content="The only pickleball platform that shows you exactly what to improve — and proves it's working. Powered by The 258.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -28,21 +28,11 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--white);min-he
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px 60px;position:relative;overflow:hidden;}
 .hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52,211,100,0.2) 0%,rgba(52,211,100,0.04) 40%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;animation:glowPulse 5s ease-in-out infinite;}
 @keyframes glowPulse{0%,100%{opacity:.6;transform:translate(-50%,-55%) scale(1);}50%{opacity:.9;transform:translate(-50%,-55%) scale(1.08);}}
-.hero-mark{font-family:var(--font-head);font-size:20px;letter-spacing:0.25em;color:var(--green);text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1;}
+.hero-mark{display:block;text-align:center;font-family:var(--font-body);font-size:12px;letter-spacing:5px;color:var(--green);opacity:0.75;text-transform:uppercase;margin-bottom:32px;position:relative;z-index:1;font-weight:600;}
 .hero h1{font-family:var(--font-head);font-size:clamp(42px,8vw,80px);line-height:1.05;letter-spacing:0.02em;color:var(--white);margin-bottom:16px;position:relative;z-index:1;}
-.hero-sub{font-size:clamp(15px,2vw,19px);color:var(--muted);max-width:520px;line-height:1.6;margin-bottom:48px;position:relative;z-index:1;}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:var(--muted);max-width:520px;line-height:1.6;margin-bottom:20px;position:relative;z-index:1;}
 .scroll-arrow{position:relative;z-index:1;width:28px;height:28px;border-left:2px solid var(--faint);border-bottom:2px solid var(--faint);transform:rotate(-45deg);animation:bounce 2s infinite;}
 @keyframes bounce{0%,100%{transform:rotate(-45deg) translateY(0);}50%{transform:rotate(-45deg) translateY(8px);}}
-
-/* ── STATS ── */
-.stats{padding:48px 24px;background:linear-gradient(135deg,rgba(52,211,100,0.08),rgba(52,211,100,0.02));border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.stats-row{display:flex;justify-content:center;align-items:center;gap:0;max-width:700px;margin:0 auto;flex-wrap:wrap;}
-.stat{flex:1;min-width:160px;text-align:center;padding:16px 20px;}
-.stat-num{font-family:var(--font-head);font-size:clamp(48px,8vw,72px);color:var(--green);line-height:1;}
-.stat-label{font-size:14px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;}
-.stat-div{width:1px;height:60px;background:var(--border);flex-shrink:0;}
-.stats-cap{text-align:center;margin-top:20px;font-size:13px;color:var(--faint);letter-spacing:0.06em;}
-@media(max-width:560px){.stat-div{display:none;}.stats-row{flex-direction:column;gap:8px;}}
 
 /* ── QUOTE ── */
 .quote{padding:64px 24px;text-align:center;max-width:680px;margin:0 auto;}
@@ -88,48 +78,61 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--white);min-he
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:560px){
+  .what-changes-grid{grid-template-columns:1fr !important;}
+  .founding-grid{grid-template-columns:1fr !important;}
+  section[data-section]{padding-left:24px !important;padding-right:24px !important;}
+}
 </style>
 </head>
 <body>
 
-<!-- ════ HERO ════ -->
+<!-- ════ 1. HERO ════ -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-mark">P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup></div>
+  <div class="hero-mark">P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> &middot; Pickleball Performance Platform</div>
   <h1>Your Performance Journey Starts Here.</h1>
   <p class="hero-sub">P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> shows you <span style="color:#34d364;font-weight:700;">exactly how to improve</span> &mdash; then gives you the proof it&rsquo;s working. Powered by <span style="color:#34d364;font-weight:700;">The 258</span>, a proprietary coaching framework built from real games.</p>
   <p style="font-size:13px;font-style:italic;color:rgba(255,255,255,0.5);margin-bottom:48px;position:relative;z-index:1;">&ldquo;I built this because I needed it. Now it&rsquo;s yours.&rdquo; &mdash; <span style="font-style:normal;color:#34d364;font-weight:600;">Todd Storch, Founder</span></p>
-  <a href="#stats" aria-label="Scroll down"><div class="scroll-arrow"></div></a>
+  <a href="#signup" aria-label="Scroll to signup"><div class="scroll-arrow"></div></a>
 </section>
 
-<!-- ════ STATS ════ -->
-<section class="stats" id="stats">
-  <div class="stats-row">
-    <div class="stat fade-up">
-      <div class="stat-num" data-target="206">0</div>
-      <div class="stat-label">Games Tracked</div>
+<!-- ════ 2. WHAT CHANGES WHEN YOU JOIN ════ -->
+<section data-section style="background:#070d1a;padding:56px 60px;border-top:1px solid rgba(52,211,100,0.07);">
+  <p style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:36px;text-align:center;">What changes when you join</p>
+  <div class="what-changes-grid" style="max-width:580px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(52,211,100,0.1);border-top:2px solid rgba(52,211,100,0.3);border-radius:10px;padding:28px 24px;">
+      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">Know what to work on.</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.38);line-height:1.65;">No more guessing. P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> tells you <span style="color:#34d364;">exactly</span> what to focus on after every game.</div>
     </div>
-    <div class="stat-div"></div>
-    <div class="stat fade-up">
-      <div class="stat-num" data-target="31">0</div>
-      <div class="stat-label">Days of Proof</div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(52,211,100,0.1);border-top:2px solid rgba(52,211,100,0.3);border-radius:10px;padding:28px 24px;">
+      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">Improve between lessons.</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.38);line-height:1.65;">Personalized coaching priorities <span style="color:#34d364;">every session</span> &mdash; not just when you pay for a clinic.</div>
     </div>
-    <div class="stat-div"></div>
-    <div class="stat fade-up">
-      <div class="stat-num" data-target="66" data-suffix="%">0</div>
-      <div class="stat-label">Fewer Errors</div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(52,211,100,0.1);border-top:2px solid rgba(52,211,100,0.3);border-radius:10px;padding:28px 24px;">
+      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">See it happening.</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.38);line-height:1.65;">Watch your numbers move. <span style="color:#34d364;">Real improvement</span>, tracked game by game, session by session.</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(52,211,100,0.1);border-top:2px solid rgba(52,211,100,0.3);border-radius:10px;padding:28px 24px;">
+      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">Make your practice count.</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.38);line-height:1.65;">Every drill, every game &mdash; with <span style="color:#34d364;">a clear purpose</span>. No more showing up and just playing.</div>
     </div>
   </div>
-  <p class="fade-up" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:12px 0 14px;text-align:center;width:100%;">Engineered for performance. Proven on the court.</p>
 </section>
 
-<!-- ════ THE 258 DEFINITION ════ -->
-<section style="background:#070d1a;border-bottom:1px solid rgba(52,211,100,0.07);border-left:3px solid #34d364;padding:22px 48px;">
-  <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;text-align:center;max-width:540px;margin:0 auto;font-family:var(--font-body);"><span style="color:#34d364;font-weight:700;">The 258</span> is P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup>&rsquo;s proprietary coaching framework. 258 data points. One goal &mdash; proof you&rsquo;re improving.</p>
+<!-- ════ 3. BRAND STATEMENT ════ -->
+<section data-section style="background:#0a0f1e;padding:36px 60px;text-align:center;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);">
+  <p style="font-size:20px;font-weight:700;color:#ffffff;line-height:1.5;max-width:580px;margin:0 auto;">The only pickleball platform that shows you <span style="color:#34d364;font-weight:700;">exactly what to improve</span> &mdash; and proves it&rsquo;s working.</p>
 </section>
 
-<!-- ════ SIMPLE BY DESIGN ════ -->
-<section style="background:#0a0f1e;padding:56px 60px;border-top:1px solid rgba(255,255,255,0.04);">
+<!-- ════ 4. THE 258 DEFINITION ════ -->
+<section data-section style="background:#070d1a;border-left:3px solid #34d364;border-right:3px solid rgba(52,211,100,0.2);padding:28px 60px;">
+  <p style="font-size:15px;color:rgba(255,255,255,0.65);line-height:1.8;text-align:center;max-width:540px;margin:0 auto;font-family:var(--font-body);"><span style="color:#34d364;font-weight:700;">The 258</span> is P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup>&rsquo;s proprietary coaching framework. 258 data points. One goal &mdash; proof you&rsquo;re improving.</p>
+</section>
+
+<!-- ════ 5. SIMPLE BY DESIGN ════ -->
+<section data-section style="background:#0a0f1e;padding:56px 60px;border-top:1px solid rgba(255,255,255,0.04);">
   <h2 style="font-size:28px;font-weight:800;color:#ffffff;text-transform:uppercase;letter-spacing:1px;text-align:center;margin-bottom:8px;font-family:var(--font-body);">Simple by design.</h2>
   <p style="font-size:14px;color:rgba(255,255,255,0.35);text-align:center;margin-bottom:44px;line-height:1.6;">Three steps. No complexity. Just <span style="color:#34d364;">your path to improvement</span> &mdash; after every game.</p>
   <div style="max-width:540px;margin:0 auto;">
@@ -157,41 +160,18 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--white);min-he
   </div>
 </section>
 
-<!-- ════ WHAT CHANGES WHEN YOU JOIN ════ -->
-<section style="background:#070d1a;padding:56px 60px;border-top:1px solid rgba(52,211,100,0.07);">
-  <p style="font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:36px;text-align:center;">What changes when you join</p>
-  <div style="max-width:580px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(52,211,100,0.1);border-radius:10px;padding:22px 20px;">
-      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">Know what to work on.</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.38);line-height:1.65;">No more guessing. P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> tells you <span style="color:#34d364;">exactly</span> what to focus on after every game.</div>
-    </div>
-    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(52,211,100,0.1);border-radius:10px;padding:22px 20px;">
-      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">Improve between lessons.</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.38);line-height:1.65;">Personalized coaching priorities <span style="color:#34d364;">every session</span> &mdash; not just when you pay for a clinic.</div>
-    </div>
-    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(52,211,100,0.1);border-radius:10px;padding:22px 20px;">
-      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">See it happening.</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.38);line-height:1.65;">Watch your numbers move. <span style="color:#34d364;">Real improvement</span>, tracked game by game, session by session.</div>
-    </div>
-    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(52,211,100,0.1);border-radius:10px;padding:22px 20px;">
-      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:8px;">Make your practice count.</div>
-      <div style="font-size:12px;color:rgba(255,255,255,0.38);line-height:1.65;">Every drill, every game &mdash; with <span style="color:#34d364;">a clear purpose</span>. No more showing up and just playing.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ════ QUOTE ════ -->
+<!-- ════ 6. FOUNDER QUOTE ════ -->
 <section class="quote fade-up">
   <p>&ldquo;206 games. 66% fewer errors. 31 days &mdash; tracked on an Apple Watch and a spreadsheet. Every player who saw my data wanted the same thing. So I built P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> to give every player the same proof and path to improve.&rdquo;</p>
   <cite>&mdash; Todd Storch, Founder</cite>
 </section>
 
-<!-- ════ FOUNDING SPOTS ════ -->
-<section id="founding-section" style="background:#070d1a;padding:52px 60px;text-align:center;border-top:1px solid rgba(52,211,100,0.08);display:none;">
+<!-- ════ 7. FOUNDING SPOTS ════ -->
+<section data-section id="founding-section" style="background:#070d1a;padding:52px 60px;text-align:center;border-top:1px solid rgba(52,211,100,0.08);display:none;">
   <span style="display:inline-block;background:rgba(52,211,100,0.1);border:1px solid rgba(52,211,100,0.3);color:#34d364;font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:6px 18px;border-radius:20px;margin-bottom:20px;font-weight:700;">Founding Access</span>
   <h2 style="font-size:24px;font-weight:800;color:#ffffff;margin-bottom:10px;font-family:var(--font-body);">Limited Founding Spots.</h2>
   <p style="font-size:14px;color:rgba(255,255,255,0.35);line-height:1.7;max-width:420px;margin:0 auto 36px;">This isn&rsquo;t a mass launch. Founding Members get <span style="color:#34d364;">early access</span>, direct input on the product, and a rate that never goes up.</p>
-  <div style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+  <div class="founding-grid" style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
     <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:22px 20px;text-align:center;">
       <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:12px;">Players</div>
       <div style="background:rgba(255,255,255,0.06);border-radius:4px;height:5px;margin-bottom:12px;overflow:hidden;">
@@ -213,7 +193,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--white);min-he
   </div>
 </section>
 
-<!-- ════ FORM ════ -->
+<!-- ════ 8. FORM ════ -->
 <section class="form-section" id="signup">
   <h2 id="form-heading">Claim Your Founding Spot</h2>
   <p class="form-sub" id="form-subhead">Early access. Limited availability. Players and coaches welcome.</p>
@@ -245,16 +225,16 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--white);min-he
       <svg viewBox="0 0 24 24" fill="none" stroke="#0a0f1e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
     <h3>You're on the list.</h3>
-    <p>We'll reach out when P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> opens. Tell a fellow player 👇</p>
+    <p>You're a Founding Member. Tell a fellow player who deserves this. 👇</p>
     <div class="share-row">
-      <button class="share-btn" onclick="shareClipboard()">📋 Copy &amp; Share</button>
-      <button class="share-btn" onclick="shareFacebook()">📘 Share on Facebook</button>
+      <button class="share-btn" onclick="shareClipboard()">Copy &amp; Share</button>
+      <button class="share-btn" onclick="shareFacebook()">Share on Facebook</button>
     </div>
     <div class="share-toast" id="share-toast"></div>
   </div>
 </section>
 
-<!-- ════ FOOTER ════ -->
+<!-- ════ 9. FOOTER ════ -->
 <footer class="footer">
   <p>&copy; 2026 P<sup style="font-size:0.6em;vertical-align:super;line-height:0;">³</sup> &middot; Pickleball Performance Platform</p>
   <p>Engineered for the serious player.</p>
@@ -278,8 +258,8 @@ async function submitWaitlist() {
   const btn   = document.getElementById('w-submit');
   errEl.textContent = '';
 
-  if (!name) { errEl.textContent = 'Name is required.'; return; }
-  if (!email || !email.includes('@')) { errEl.textContent = 'Valid email is required.'; return; }
+  if (!name) { errEl.style.color = '#f87171'; errEl.textContent = 'Name is required.'; return; }
+  if (!email || !email.includes('@')) { errEl.style.color = '#f87171'; errEl.textContent = 'Valid email is required.'; return; }
 
   btn.textContent = 'Joining...';
   btn.disabled = true;
@@ -292,7 +272,6 @@ async function submitWaitlist() {
     });
     const data = await res.json();
 
-    // Duplicate email — show inline green message, keep form visible
     if (res.status === 409) {
       errEl.style.color = '#34d364';
       errEl.textContent = "You're already on the list! We'll reach out when P³ opens. 🎯";
@@ -302,7 +281,6 @@ async function submitWaitlist() {
     }
     if (!res.ok) throw new Error(data.error || 'Signup failed');
 
-    // Success — hide heading + form, show success state
     document.getElementById('form-heading').style.display = 'none';
     document.getElementById('form-subhead').style.display = 'none';
     document.getElementById('form-container').style.display = 'none';
@@ -310,18 +288,19 @@ async function submitWaitlist() {
   } catch (err) {
     errEl.style.color = '#f87171';
     errEl.textContent = err.message || 'Something went wrong. Please try again.';
-    btn.textContent = 'Claim My Spot →';
+    btn.textContent = 'Claim My Founding Spot →';
     btn.disabled = false;
   }
 }
 
-// Enter key submits
 document.querySelectorAll('#form-container input').forEach(el => {
   el.addEventListener('keydown', e => { if (e.key === 'Enter') submitWaitlist(); });
 });
 
 // ── Share ──
-const SHARE_TEXT = "Just joined the waitlist for P³ — a new AI pickleball coaching platform. 206 games. 66% fewer errors. 31 days of proof. Check it out 🎯🏓";
+const SHARE_TEXT = "Just claimed my founding spot on P³ — a pickleball coaching platform that shows you exactly how to improve, game by game. Powered by The 258, a 258-point proprietary coaching framework. Founding spots are limited. 🎯🏓 p3waitlist.netlify.app";
+const FB_QUOTE = "Just claimed my founding spot on P³ — a pickleball coaching platform that shows you exactly how to improve, game by game. Founding spots are limited. 🎯🏓";
+const FB_URL = "https://p3waitlist.netlify.app";
 
 function shareClipboard() {
   navigator.clipboard.writeText(SHARE_TEXT).then(() => {
@@ -333,36 +312,18 @@ function shareClipboard() {
 }
 
 function shareFacebook() {
-  const url = encodeURIComponent(window.location.href);
-  const quote = encodeURIComponent(SHARE_TEXT);
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`, '_blank', 'width=600,height=400');
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(FB_URL)}&quote=${encodeURIComponent(FB_QUOTE)}`, '_blank', 'width=600,height=400');
 }
 
-// ── Count-up animation on scroll ──
+// ── Fade-up on scroll (no more count-up) ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Count-up for stat numbers
-      const num = entry.target.querySelector('.stat-num');
-      if (num && num.dataset.target) {
-        const target = parseInt(num.dataset.target);
-        const suffix = num.dataset.suffix || '';
-        const duration = 1200;
-        const start = performance.now();
-        const step = (now) => {
-          const pct = Math.min((now - start) / duration, 1);
-          const ease = 1 - Math.pow(1 - pct, 3); // easeOutCubic
-          num.textContent = Math.round(target * ease) + suffix;
-          if (pct < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      }
       observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.3 });
-
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 // ── Founding spots fetch on page load ──
@@ -374,17 +335,14 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     const PLAYER_MAX = 100;
     const COACH_MAX = 25;
 
-    // Hide the whole section until we have meaningful player numbers.
     if (player_count < 5) return;
     document.getElementById('founding-section').style.display = 'block';
 
-    // Players
     document.getElementById('player-count').textContent = player_count;
     document.getElementById('player-label').textContent = 'of ' + PLAYER_MAX + ' founding spots claimed';
     document.getElementById('player-remaining').textContent = (PLAYER_MAX - player_count) + ' remaining';
     document.getElementById('player-bar').style.width = Math.min(100, (player_count / PLAYER_MAX) * 100) + '%';
 
-    // Coaches — show "–" if fewer than 3 to avoid revealing low numbers.
     if (coach_count < 3) {
       document.getElementById('coach-count').textContent = '–';
       document.getElementById('coach-remaining').textContent = 'Spots available';
