@@ -10,9 +10,6 @@ exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 204, headers, body: "" };
   }
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, headers, body: JSON.stringify({ error: "POST only" }) };
-  }
 
   const PPP_URL = process.env.PPP_SUPABASE_URL;
   const PPP_KEY = process.env.PPP_SUPABASE_SERVICE_ROLE_KEY;
@@ -23,6 +20,35 @@ exports.handler = async (event) => {
   if (!PPP_URL || !PPP_KEY) {
     console.error("[waitlist] Missing Supabase env vars");
     return { statusCode: 500, headers, body: JSON.stringify({ error: "Server misconfigured" }) };
+  }
+
+  const pppHeaders = {
+    apikey: PPP_KEY,
+    Authorization: `Bearer ${PPP_KEY}`,
+  };
+
+  // ── GET /waitlist-signup — return player + coach counts ──
+  if (event.httpMethod === "GET") {
+    try {
+      const countFor = async (type) => {
+        const res = await fetch(
+          `${PPP_URL}/rest/v1/waitlist?select=id&user_type=eq.${type}`,
+          { headers: { ...pppHeaders, Prefer: "count=exact", "Range-Unit": "items", Range: "0-0" } }
+        );
+        const cr = res.headers.get("content-range") || "";
+        const total = cr.split("/")[1];
+        return total && total !== "*" ? parseInt(total, 10) : 0;
+      };
+      const [player_count, coach_count] = await Promise.all([countFor("player"), countFor("coach")]);
+      return { statusCode: 200, headers, body: JSON.stringify({ player_count, coach_count }) };
+    } catch (err) {
+      console.error("[waitlist] GET counts failed:", err.message);
+      return { statusCode: 500, headers, body: JSON.stringify({ error: "Count failed" }) };
+    }
+  }
+
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, headers, body: JSON.stringify({ error: "POST only" }) };
   }
 
   let body;
