@@ -403,8 +403,9 @@ Founder, P³`;
         const interactionPayload = {
           contact_id: contactId,
           interaction_type: "waitlist_signup",
-          source: "p3waitlist_landing",
-          notes: `Signed up as ${user_type}. Phone: ${cleanPhone || "not provided"}`,
+          interaction_channel: "other",
+          interaction_date: today,
+          summary: `Signed up as ${user_type} via p3waitlist_landing. Phone: ${cleanPhone || "not provided"}`,
         };
         const interactionRes = await fetch(`${PERSONALOS_URL}/rest/v1/contact_interactions`, {
           method: "POST",
